@@ -1,19 +1,21 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable arrow-parens */
+/* eslint-disable object-curly-newline */
+/* eslint-disable quotes */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/static-property-placement */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable indent */
 /* eslint-disable comma-dangle */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import Loading from '../../components/Loading';
-import { Creators as PlaylistsActions } from '../../store/ducks/playlists';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Creators as PlaylistsActions } from "../../store/ducks/playlists";
 
-import {
- Container, Title, List, Playlist 
-} from './styles';
+import Loading from "../../components/Loading";
+import { Container, Title, List, Playlist } from "./styles";
 
 class Browse extends Component {
   static propTypes = {
@@ -41,7 +43,7 @@ class Browse extends Component {
         <Title>Navegar{this.props.playlists.loading && <Loading />}</Title>
 
         <List>
-          {this.props.playlists.data.map((playlist) => (
+          {this.props.playlists.data.map(playlist => (
             <Playlist key={playlist.id} to={`/playlists/${playlist.id}`}>
               <img src={playlist.thumbnail} alt={playlist.title} />
               <strong>{playlist.title}</strong>
@@ -54,10 +56,11 @@ class Browse extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   playlists: state.playlists
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(PlaylistsActions, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(PlaylistsActions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Browse);

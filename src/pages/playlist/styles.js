@@ -1,7 +1,26 @@
-import styled from 'styled-components';
+/* eslint-disable quotes */
+/* eslint-disable arrow-parens */
+/* eslint-disable operator-linebreak */
+/* eslint-disable implicit-arrow-linebreak */
+import styled, { css } from "styled-components";
+
+import { Spinner } from "../../components/Loading/styles";
 
 export const Container = styled.div`
   margin-top: 30px;
+
+  ${Spinner} {
+    height: 48px;
+  }
+
+  ${props =>
+    props.loading &&
+    css`
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    `}
 `;
 
 export const Header = styled.header`
