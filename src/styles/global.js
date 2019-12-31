@@ -1,6 +1,7 @@
+/* eslint-disable quotes */
 /* eslint-disable no-unused-expressions */
-import { createGlobalStyle } from 'styled-components';
-import 'rc-slider/assets/index.css';
+import { createGlobalStyle } from "styled-components";
+import "rc-slider/assets/index.css";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -21,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     color: #fff;
   }
+
+  button {
+    cursor: pointer;
+  }
+
 `;
 
 export default GlobalStyle;
